@@ -31,32 +31,67 @@ The dataset contains the following columns:
 
 ---
 
-### **Project Task**
-Analyze the **impact of length of stay** on international students’ average mental health diagnostic scores.  
+### **Task 1**: Impact of Stay Duration on Mental Health
+Analyze the impact of length of stay on international students’ average mental health diagnostic scores.
 
-Return a table with:  
-- `stay` → length of stay in years  
-- `count_int` → number of international students per stay length  
-- `average_phq` → average PHQ-9 score (rounded to 2 decimals)  
-- `average_scs` → average SCS score (rounded to 2 decimals)  
-- `average_as` → average ASISS score (rounded to 2 decimals)  
+Requirements:
+- Return a table with columns: stay, count_int, average_phq, average_scs, average_as
+- Round averages to 2 decimals
+- Sort by stay (descending)
+- Limit results to 9 rows
 
-Additional requirements:  
-- Sort results by **stay** in descending order  
-- Limit output to **9 rows**  
+**Solution**:
+
+SELECT stay, COUNT(inter_dom) AS count_int, ROUND(AVG(todep), 2) AS average_phq, 
+       
+ROUND(AVG(tosc), 2) AS average_scs, ROUND(AVG(toas), 2) AS average_as
+
+FROM students
+
+WHERE inter_dom = 'Inter'
+
+GROUP BY stay
+
+ORDER BY stay DESC
+
+LIMIT 9;
 
 ---
 
-### **SQL Solution**
-```sql
-SELECT stay, 
-       COUNT(inter_dom) AS count_int, 
-       ROUND(AVG(todep), 2) AS average_phq, 
-       ROUND(AVG(tosc), 2) AS average_scs, 
-       ROUND(AVG(toas), 2) AS average_as
-FROM students
-WHERE inter_dom = 'Inter'
-GROUP BY stay
-ORDER BY stay DESC
-LIMIT 9;
+### **Task 2**: Depression Levels by Academic Level
+Explore whether undergraduate vs graduate students show differences in depression levels.
 
+Requirements:
+- Return a table with columns: academic, avg_depression
+- avg_depression = average PHQ-9 depression score, rounded to 2 decimals
+- Sort results by average depression in descending order
+
+**Solution**:
+
+SELECT academic, ROUND(AVG(todep), 2) AS avg_depression
+
+FROM students
+
+GROUP BY academic
+
+ORDER BY avg_depression DESC;
+
+---
+
+### **Task 3**: Relationship Between Language Proficiency and Social Connectedness
+Analyze if English language proficiency impacts social connectedness among students.
+
+Requirements:
+- Return a table with columns: english_cate, avg_social_connectedness
+- avg_social_connectedness = average of SCS test scores, rounded to 2 decimals
+- Sort by highest social connectedness
+
+**Solution**:
+
+SELECT english_cate, ROUND(AVG(tosc), 2) AS avg_social_connectedness
+
+FROM students
+
+GROUP BY english_cate
+
+ORDER BY avg_social_connectedness DESC;
