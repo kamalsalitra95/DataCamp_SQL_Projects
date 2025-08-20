@@ -1,7 +1,7 @@
 # DataCamp_Projects
 DataCamp SQL projects showcasing data analysis and query-solving skills.
 
-# SQL Project: Mental Health Analysis of International Students
+# SQL Project 1: Mental Health Analysis of International Students
 
 ## 📌 Objective
 This project explores whether studying abroad impacts students’ mental health.  
@@ -12,8 +12,7 @@ The study investigates the relationship between:
 - **Social connectedness (SCS test scores)**
 - **Acculturative stress (ASISS test scores)**
 - **Length of stay in the host country**
-
-Using PostgreSQL, we analyze how the **length of stay** impacts mental health scores for international students.
+we analyze how the **length of stay** impacts mental health scores for international students.
 
 ---
 
