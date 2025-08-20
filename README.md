@@ -1,23 +1,19 @@
-# DataCamp_Projects
-DataCamp SQL projects showcasing data analysis and query-solving skills.
+## 📌 SQL Project 1: Mental Health Analysis of International Students  
 
-# SQL Project 1: Mental Health Analysis of International Students
-
-## 📌 Objective
+### **Objective**
 This project explores whether studying abroad impacts students’ mental health.  
 The analysis is based on survey data collected in 2018 from students at a Japanese international university.  
 
-The study investigates the relationship between:
-- **Depression levels (PHQ-9 test scores)**
-- **Social connectedness (SCS test scores)**
-- **Acculturative stress (ASISS test scores)**
-- **Length of stay in the host country**
-we analyze how the **length of stay** impacts mental health scores for international students.
+The study investigates the relationship between:  
+- **Depression levels (PHQ-9 test scores)**  
+- **Social connectedness (SCS test scores)**  
+- **Acculturative stress (ASISS test scores)**  
+- **Length of stay in the host country**  
 
 ---
 
-## 📊 Dataset Description
-The dataset contains the following columns:
+### **Dataset Description**
+The dataset contains the following columns:  
 
 | Field Name    | Description |
 |---------------|-------------|
@@ -31,22 +27,27 @@ The dataset contains the following columns:
 | tosc          | Social connectedness score (SCS test) |
 | toas          | Acculturative stress score (ASISS test) |
 
----
-
-## ❓ Project Task
-- Analyze the **impact of length of stay** on international students’ average mental health diagnostic scores.  
-- Return a table with:
-  - `stay` → length of stay in years  
-  - `count_int` → number of international students per stay length  
-  - `average_phq` → average PHQ-9 score (rounded to 2 decimals)  
-  - `average_scs` → average SCS score (rounded to 2 decimals)  
-  - `average_as` → average ASISS score (rounded to 2 decimals)  
-- Sort results by **stay** in descending order.  
-- Limit output to **9 rows**.
+⚠️ *Dataset provided by DataCamp. Not included in this repository due to license restrictions.*  
 
 ---
 
-## 📝 SQL Solution
+### **Project Task**
+Analyze the **impact of length of stay** on international students’ average mental health diagnostic scores.  
+
+Return a table with:  
+- `stay` → length of stay in years  
+- `count_int` → number of international students per stay length  
+- `average_phq` → average PHQ-9 score (rounded to 2 decimals)  
+- `average_scs` → average SCS score (rounded to 2 decimals)  
+- `average_as` → average ASISS score (rounded to 2 decimals)  
+
+Additional requirements:  
+- Sort results by **stay** in descending order  
+- Limit output to **9 rows**  
+
+---
+
+### **SQL Solution**
 ```sql
 SELECT stay, 
        COUNT(inter_dom) AS count_int, 
